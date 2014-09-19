@@ -28,7 +28,7 @@ public:
     Matrix operator/(const double& k);
     Matrix& operator=(const Matrix& m);
     Matrix operator*(Matrix& b);
-    void QR(Matrix& q, Matrix& r); // Gram-Schmit orthogonalization
+    void QR(Matrix& q, Matrix& r); // Modified Gram-Schmit orthogonalization
     void QREig(unsigned int iterations);
 };
 
