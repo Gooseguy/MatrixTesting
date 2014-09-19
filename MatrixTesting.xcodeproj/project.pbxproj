@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		CA20788C19C7637100A0C568 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA20788B19C7637100A0C568 /* main.cpp */; };
-		CA20788E19C7637100A0C568 /* MatrixTesting.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = CA20788D19C7637100A0C568 /* MatrixTesting.1 */; };
+		CA20788E19C7637100A0C568 /* MatrixTesting.1 in Copy Files */ = {isa = PBXBuildFile; fileRef = CA20788D19C7637100A0C568 /* MatrixTesting.1 */; };
+		CA7B5D0919C778C500C925BE /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA7B5D0719C778C500C925BE /* Matrix.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CA20788619C7637100A0C568 /* CopyFiles */ = {
+		CA20788619C7637100A0C568 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = "";
 			dstSubfolderSpec = 0;
 			files = (
-				CA20788E19C7637100A0C568 /* MatrixTesting.1 in CopyFiles */,
+				CA20788E19C7637100A0C568 /* MatrixTesting.1 in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -28,6 +30,8 @@
 		CA20788819C7637100A0C568 /* MatrixTesting */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MatrixTesting; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA20788B19C7637100A0C568 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CA20788D19C7637100A0C568 /* MatrixTesting.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MatrixTesting.1; sourceTree = "<group>"; };
+		CA7B5D0719C778C500C925BE /* Matrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; usesTabs = 0; };
+		CA7B5D0819C778C500C925BE /* Matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				CA20788B19C7637100A0C568 /* main.cpp */,
+				CA7B5D0719C778C500C925BE /* Matrix.cpp */,
+				CA7B5D0819C778C500C925BE /* Matrix.h */,
 				CA20788D19C7637100A0C568 /* MatrixTesting.1 */,
 			);
 			path = MatrixTesting;
@@ -75,7 +81,7 @@
 			buildPhases = (
 				CA20788419C7637100A0C568 /* Sources */,
 				CA20788519C7637100A0C568 /* Frameworks */,
-				CA20788619C7637100A0C568 /* CopyFiles */,
+				CA20788619C7637100A0C568 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -117,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7B5D0919C778C500C925BE /* Matrix.cpp in Sources */,
 				CA20788C19C7637100A0C568 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +234,7 @@
 				CA20789319C7637100A0C568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
