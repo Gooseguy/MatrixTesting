@@ -42,7 +42,7 @@ void Matrix::Print()
     {
         for (int j = 0; j<WIDTH;++j)
         {
-            std::cout << std::setprecision(1) << GetElement(i,j) << " ";
+            std::cout << std::setprecision(3) << GetElement(i,j) << " ";
         }
         std::cout<<std::endl;
     }
@@ -127,9 +127,56 @@ void Matrix::QREig(unsigned int iterations)
     Matrix q(WIDTH), r(WIDTH);
     for (unsigned int i = 0; i<iterations;++i)
     {
-        a.QR(q,r);
-        a = r * q;
+        a.QRHouseholder(q,r);
+        //a = r * q;
     }
+}
+
+
+void Matrix::QRHouseholder(Matrix& q, Matrix& r)
+{
+    std::vector<double> d(WIDTH);
+    for (int j = 0; j<WIDTH;++j)
+    {
+        double s = 0;
+        for (int i = j; i<WIDTH;++i) s+=GetElement(i,j)*GetElement(i,j);
+        s=sqrt(s);
+        d[j] = (GetElement(j,j) > 0) ? -s : s;
+        double fak = sqrt(s * (s + std::abs(GetElement(j,j))));
+        elements[GetIndex(j,j)]-=d[j];
+        for (int k = j;k<WIDTH;++k)elements[GetIndex(k,j)]/=fak;
+        for (int i = j+1; i<WIDTH;++i)
+        {
+            s=0;
+            for (int k = j; k<WIDTH;++k) s+=GetElement(k,j)*GetElement(k,i);
+            for (int k = j; k<WIDTH;++k) elements[GetIndex(k,i)]-=GetElement(k,j)*s;
+            
+        }
+        d[j] = std::abs(d[j]); // ensure positive-definiteness
+    }
+    for (double k : d) std::cout << k << std::endl;
+    r=Matrix(d,0);
+    for (int j = 0; j<WIDTH;++j) for (int i = j+1;i<WIDTH;++i) r.elements[GetIndex(j,i)] =std::abs(GetElement(j,i));
+    r.Print();
+    for (int i = 0; i<WIDTH;++i)
+    {
+        std::vector<double> y(WIDTH);
+        y[i]=1.0;
+        for (int j = WIDTH-1; j>=0;--j)
+        {
+            double s=0;
+            for (int k = j;k<WIDTH;++k) { s+=GetElement(j,k)*y[k]; std::cout << GetElement(k, j) << " "; } for (int k = 0; k<j;++k) std::cout << " ";
+            for (int k = j;k<WIDTH;++k) y[k]+=GetElement(j,k)*s;
+            std::cout << std::endl;
+        }
+        for (int j = 0; j<WIDTH;++j) q.elements[GetIndex(i,j)]=y[j];
+    }
+    //(r * q).Print();
+    //q.Print();
+    std::cout << "\n\n";
+    //Print();
+    //elements=(q * r).elements;
+    //(q * r).Print();
 }
 
 //void Matrix::QR(Matrix &q, Matrix &r)

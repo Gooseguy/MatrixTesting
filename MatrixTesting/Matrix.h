@@ -29,6 +29,7 @@ public:
     Matrix& operator=(const Matrix& m);
     Matrix operator*(Matrix& b);
     void QR(Matrix& q, Matrix& r); // Modified Gram-Schmit orthogonalization
+    void QRHouseholder(Matrix& q, Matrix& r); // Householder rotation QR decomposition
     void QREig(unsigned int iterations);
 };
 
